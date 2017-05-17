@@ -1,1 +1,0 @@
-# Restoran-Bilgi-Sistemi
