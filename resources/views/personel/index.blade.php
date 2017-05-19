@@ -14,7 +14,7 @@
 				<h1 class="page-header">Personel Listesi</h1>
 			</div>
 			<div class="col-lg-2 "><br><br>
-				<a href="{{ action('MalzemeController@add') }}" type="button" class="btn btn-success col-centered" >Personel Ekle</a>
+				<a href="{{ action('PersonelController@add') }}" type="button" class="btn btn-success col-centered" >Personel Ekle</a>
 
 
 			</div>
@@ -32,6 +32,17 @@
 				        <th data-field="price">İşlemler</th>
 				    </tr>
 				    </thead>
+					<tbody>
+					@foreach( $personeller as $personel )
+						<tr>
+							<td>{{ $personel->ad }}</td>
+							<td>{{ $personel->soyad }}</td>
+							<td>{{ $personel->tc }}</td>
+							<td><a class="btn btn-default" >Düzenle</a>    <a class="btn btn-danger" >Sil</a></td>
+
+						</tr>
+					@endforeach
+					</tbody>
 				</table>
 			</div>
 		</div>

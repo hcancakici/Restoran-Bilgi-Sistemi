@@ -11,20 +11,35 @@
 |
 */
 
-Route::group(['middleware' => ''], function() {
-	
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/home', 'DashController@index');
+
+    Route::get('/personel', 'PersonelController@index');
+    Route::get('/personel/yeni', 'PersonelController@add');
+    Route::post('/personel/store', 'PersonelController@store');
+
+
+    Route::get('/urun', 'UrunController@index');
+    Route::get('/urun/yeni', 'UrunController@add');
+    Route::post('/urun/store', 'UrunController@store');
+
+    Route::get('/siparis', 'SiparisController@index');
+    Route::get('/siparis/yeni', 'SiparisController@add');
+    Route::post('/siparis/store', 'PersonelController@store');
+
+    Route::get('/malzeme', 'MalzemeController@index');
+    Route::get('/malzeme/yeni', 'MalzemeController@add');
+    Route::post('/malzeme/store', 'MalzemeController@store');
+
+    Route::get('/masa', 'MasaController@index');
+    Route::get('/masa/yeni', 'MasaController@add');
+    Route::post('/masa/store', 'MasaController@store');
+
 });
-	
 
-Route::get('/index', 'DashController@index');
 
-Route::get('/personel', 'PersonelController@index');
-Route::get('/urun', 'UrunController@index');
-Route::get('/siparis', 'SiparisController@index');
-Route::get('/malzeme', 'MalzemeController@index');
-Route::get('/malzeme/yeni', 'MalzemeController@add');
-Route::get('/masa', 'MasaController@index');
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

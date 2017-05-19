@@ -27,16 +27,18 @@
 				<table data-toggle="table" class="table">
 				    <thead>
 				    <tr>
-				        <th data-field="id" data-align="right">Malzeme Adı</th>
+				        <th data-align="right">Malzeme Adı</th>
+				        <th data-align="right">Miktar</th>
 				        <th data-field="name">İşlem</th>
 				    </tr>
 				    </thead>
 				    <tbody>
-				   
+
 				    	@foreach ($malzemeler as $malzeme)
 				    		<tr>
 				    			<td>{{ $malzeme->ad }}</td>
-				    			<td><button class="danger">Sil</button></td>
+								<td>{{ $malzeme->miktar }}</td>
+				    			<td><button class="btn btn-danger">Sil</button></td>
 				    		</tr>
 				    	@endforeach
 				    </tbody>

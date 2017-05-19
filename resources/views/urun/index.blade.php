@@ -14,7 +14,7 @@
 				<h1 class="page-header">Ürün Listesi</h1>
 			</div>
 			<div class="col-lg-2 "><br><br>
-				<a href="{{ action('MalzemeController@add') }}" type="button" class="btn btn-success col-centered" >Ürün Ekle</a>
+				<a href="{{ action('UrunController@add') }}" type="button" class="btn btn-success col-centered" >Ürün Ekle</a>
 
 
 			</div>
@@ -29,7 +29,7 @@
 				    <tr>
 				        <th data-field="id" data-align="right">Ürün Adı</th>
 				        <th data-field="name">Fiyatı</th>
-				        <th data-field="price">işlemler</th>
+				        <th data-field="price">İşlemler</th>
 				    </tr>
 				    </thead>
 				</table>

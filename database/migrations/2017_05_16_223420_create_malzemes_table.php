@@ -16,7 +16,7 @@ class CreateMalzemesTable extends Migration
         Schema::create('malzemes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ad');
-            $table->double('miktar')
+            $table->double('miktar');
             $table->timestamps();
         });
     }

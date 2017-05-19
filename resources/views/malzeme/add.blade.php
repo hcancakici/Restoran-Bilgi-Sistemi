@@ -21,17 +21,17 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-body">
-			<form>
+			<form action="{{action('MalzemeController@store')}}" method="POST">
 				<div class="form-group">
-				
+					{{ csrf_field() }}
 					<label>Malzeme Adı</label>
-					<input class="form-control" placeholder="Malzeme Adı">
+					<input class="form-control" placeholder="Malzeme Adı" name="ad">
 					</div>
 
 					<div class="form-group">
 				
 						<label>Miktar</label>
-						<input class="form-control" placeholder="Miktar">
+						<input class="form-control" placeholder="Miktar" name="miktar">
 					</div>
 
 					<div class="row">
@@ -42,7 +42,7 @@
 					<div class="col-md-6">
 						<button type="submit" class="btn btn-primary btn-block">Kaydet</button>
 					</div>
-
+					</div>
 				</form>
 				</div>
 			</div>

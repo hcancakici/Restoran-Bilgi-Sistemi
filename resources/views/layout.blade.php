@@ -32,10 +32,13 @@
 				<a class="navbar-brand" href="#"><span>Restoran</span>Bilgi Sistemi</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{ Auth::user()->name }} <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							
-							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Çıkış</a></li>
+
+								<li>
+									<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+									<svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Çıkış</a></li>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
 						</ul>
 					</li>
 				</ul>
@@ -52,12 +55,12 @@
 		</form>
 		<ul class="nav menu">
 			<li class="active"><a href="{{action('DashController@index')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Kontrol Paneli</a></li>
-			<li><a href="{{action('PersonelController@index')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Personeller</a></li>
-			<li><a href="{{action('MasaController@index')}}"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Masalar</a></li>
-			<li><a href="{{action('SiparisController@index')}}"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Siparişler</a></li>
-			<li><a href="{{action('UrunController@index')}}"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Ürünler</a></li>
+			<li><a href="{{action('PersonelController@index')}}"><svg class="glyph stroked female user"><use xlink:href="#stroked-female-user"></use></svg> Personeller</a></li>
+			<li><a href="{{action('MasaController@index')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Masalar</a></li>
+			<li><a href="{{action('SiparisController@index')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> Siparişler</a></li>
+			<li><a href="{{action('UrunController@index')}}"><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"></use></svg> Ürünler</a></li>
 			
-			<li><a href="{{action('MalzemeController@index')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Malzemeler</a></li>
+			<li><a href="{{action('MalzemeController@index')}}"><svg class="glyph tag"><use xlink:href="#stroked-tag"></use></svg> Malzemeler</a></li>
 			
 	</div><!--/.sidebar-->
 		
