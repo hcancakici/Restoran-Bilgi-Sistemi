@@ -21,24 +21,25 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form action="{{ action('PersonelController@store')  }}" method="POST">
+                    <form action="{{ action('PersonelController@update')  }}" method="POST">
                         {{ csrf_field() }}
+                        <input type="hidden" value="{{ $personel->id }}" name="id">
                         <div class="form-group">
 
                             <label>İsim</label>
-                            <input class="form-control" placeholder="İsim" name="isim" required>
+                            <input class="form-control" value="{{ $personel->ad }}" name="ad" required>
                         </div>
 
                         <div class="form-group">
 
                             <label>Soyisim</label>
-                            <input class="form-control" placeholder="Soyisim" name="soyisim" required>
+                            <input class="form-control" value="{{ $personel->soyad }}" name="soyad" required>
                         </div>
 
                         <div class="form-group">
 
                             <label>TC Kimlik Numarası</label>
-                            <input class="form-control" placeholder="TC Kimlik No" name="tc" pattern=".{11,11}" required title="Lütfen 11 karakterli kimlik numaranızı girin!">
+                            <input class="form-control" value="{{ $personel->tc }}" name="tc" pattern=".{11,11}" required title="Lütfen 11 karakterli kimlik numaranızı girin!">
                         </div>
 
                         <div class="row">

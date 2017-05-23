@@ -10,13 +10,16 @@
 		</div><!--/.row-->
 
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-3">
 				<h1 class="page-header">Malzeme Listesi</h1>
 			</div>
-			<div class="col-md-2 "><br><br>
+			<div class="col-md-6"><br><br>
+				<form class="form-group" action="{{ action('MalzemeController@search') }}" method="GET">
+				<input class="form-control" name="ad" placeholder="Malzeme Ara">
+				</form>
+			</div>
+			<div class="col-md-3 "><br><br>
 				<a href="{{ action('MalzemeController@add') }}" type="button" class="btn btn-success col-centered" >Malzeme Ekle</a>
-
-
 			</div>
 		</div><!--/.row-->
 
@@ -38,7 +41,23 @@
 				    		<tr>
 				    			<td>{{ $malzeme->ad }}</td>
 								<td>{{ $malzeme->miktar }}</td>
-				    			<td><button class="btn btn-danger">Sil</button></td>
+				    			<td data-align="right">
+									<div class="col-md-2">
+										<form class="form-group" method="POST" action="{{ action('MalzemeController@edit', $malzeme->id) }}">
+											{{ csrf_field() }}
+
+											<button type="submit" class="btn btn-default">Düzenle</button>
+										</form>
+									</div>
+									<div class="col-md-2">
+										<form class="form-group" method="POST" action="{{ action('MalzemeController@delete', $malzeme->id) }}">
+											{{ csrf_field() }}
+											{{ method_field('DELETE') }}
+
+											<button type="submit" class="btn btn-danger">Sil</button>
+										</form>
+									</div>
+								</td>
 				    		</tr>
 				    	@endforeach
 				    </tbody>

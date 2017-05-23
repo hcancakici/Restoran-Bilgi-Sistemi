@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumino - Dashboard</title>
+<title>Restoran Bilgi Sistemi</title>
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/datepicker3.css" rel="stylesheet">
@@ -54,9 +54,9 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="{{action('DashController@index')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Kontrol Paneli</a></li>
-			<li><a href="{{action('PersonelController@index')}}"><svg class="glyph stroked female user"><use xlink:href="#stroked-female-user"></use></svg> Personeller</a></li>
-			<li><a href="{{action('MasaController@index')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Masalar</a></li>
+			<li class=""><a href="{{action('DashController@index')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Kontrol Paneli</a></li>
+			<li  onclick="switchColors(this);"><a href="{{action('PersonelController@index')}}"><svg class="glyph stroked female user"><use xlink:href="#stroked-female-user"></use></svg> Personeller</a></li>
+			<li  onclick="switchColors(this);"><a href="{{action('MasaController@index')}}"><svg class="glyph stroked star"><use xlink:href="#stroked-star"></use></svg> Masalar</a></li>
 			<li><a href="{{action('SiparisController@index')}}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg> Siparişler</a></li>
 			<li><a href="{{action('UrunController@index')}}"><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"></use></svg> Ürünler</a></li>
 			
@@ -75,6 +75,8 @@
 
 	<script src="/js/jquery-1.11.1.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/bootbox.min.js"></script>
+	<script src="/js/select2.min.js"></script>
 	<script src="/js/chart.min.js"></script>
 	<script src="/js/chart-data.js"></script>
 	<script src="/js/easypiechart.js"></script>
@@ -97,7 +99,13 @@
 		$(window).on('resize', function () {
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
-	</script>	
+	</script>
+
+	<script>
+		function switchColors(element) {
+			element.className += "active";
+        }
+	</script>
 </body>
 
 </html>

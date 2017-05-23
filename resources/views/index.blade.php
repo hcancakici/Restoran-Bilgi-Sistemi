@@ -69,4 +69,37 @@
 			</div>
 		</div><!--/.row-->
 
+<div class="row">
+	<div class="col-lg-12">
+		<h3 class="page-header">Azalan Malzemeler</h3>
+	</div>
+</div><!--/.row-->
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<table data-toggle="table" class="table">
+					<thead>
+					<tr>
+						<th data-align="right">Malzeme Adı</th>
+						<th data-align="right">Miktar</th>
+					</tr>
+					</thead>
+					<tbody>
+
+					@foreach ($dataset['malzemeler'] as $malzeme)
+						<tr>
+							<td>{{ $malzeme->ad }}</td>
+							<td>{{ $malzeme->miktar }}</td>
+
+						</tr>
+					@endforeach
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
 @endsection

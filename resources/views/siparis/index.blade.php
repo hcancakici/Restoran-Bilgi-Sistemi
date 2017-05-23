@@ -25,7 +25,8 @@
 				    <tr>
 				        <th data-field="id" data-align="right">Sipariş No</th>
 				        <th data-field="name">Masa No</th>
-				        <th data-field="price">Tutar</th>
+						<th data-field="personel">Personel</th>
+						<th data-field="price">Tutar</th>
 				        <th data-field="islemler">İşlemler</th>
 				    </tr>
 				    </thead>

@@ -17,7 +17,11 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/personel', 'PersonelController@index');
     Route::get('/personel/yeni', 'PersonelController@add');
+    Route::get('/personel/duzenle/{id}', 'PersonelController@edit');
+    Route::get('/personel/ara', 'PersonelController@search');
+    Route::post('/personel/update', 'PersonelController@update');
     Route::post('/personel/store', 'PersonelController@store');
+    Route::delete('/personel/delete/{id}', 'PersonelController@delete');
 
 
     Route::get('/urun', 'UrunController@index');
@@ -31,6 +35,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/malzeme', 'MalzemeController@index');
     Route::get('/malzeme/yeni', 'MalzemeController@add');
     Route::post('/malzeme/store', 'MalzemeController@store');
+    Route::post('/malzeme/duzenle/{id}', 'MalzemeController@edit');
+    Route::post('/malzeme/update', 'MalzemeController@duzenle');
+    Route::delete('/malzeme/delete/{id}', 'MalzemeController@delete');
+    Route::get('/malzeme/ara', 'MalzemeController@search');
 
     Route::get('/masa', 'MasaController@index');
     Route::get('/masa/yeni', 'MasaController@add');

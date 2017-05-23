@@ -17,7 +17,7 @@
     </div><!--/.row-->
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <form action="{{action('UrunController@store')}}" method="POST">
@@ -25,13 +25,13 @@
                         <div class="form-group">
 
                             <label>Ürün Adı</label>
-                            <input class="form-control" placeholder="Ürün Adı" name="ad">
+                            <input class="form-control" placeholder="Ürün Adı" name="ad" required>
                         </div>
 
                         <div class="form-group">
 
                             <label>Fiyat</label>
-                            <input class="form-control" placeholder="Fiyat" name="fiyat">
+                            <input class="form-control" placeholder="Fiyat" name="fiyat" required>
                         </div>
 
                         <div class="form-group">
@@ -52,12 +52,13 @@
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
                             </div>
-
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+
+
     </div>
 
 @endsection

@@ -10,13 +10,16 @@
 		</div><!--/.row-->
 
 		<div class="row">
-			<div class="col-lg-10">
+			<div class="col-md-3">
 				<h1 class="page-header">Personel Listesi</h1>
 			</div>
-			<div class="col-lg-2 "><br><br>
+			<div class="col-md-6"><br><br>
+				<form class="form-group" action="{{ action('PersonelController@search') }}" method="GET">
+					<input class="form-control" name="ad" placeholder="Personel Ara">
+				</form>
+			</div>
+			<div class="col-md-3 "><br><br>
 				<a href="{{ action('PersonelController@add') }}" type="button" class="btn btn-success col-centered" >Personel Ekle</a>
-
-
 			</div>
 		</div><!--/.row-->
 <div class="row">
@@ -38,7 +41,21 @@
 							<td>{{ $personel->ad }}</td>
 							<td>{{ $personel->soyad }}</td>
 							<td>{{ $personel->tc }}</td>
-							<td><a class="btn btn-default" >Düzenle</a>    <a class="btn btn-danger" >Sil</a></td>
+							<td>
+								<div class="col-md-2">
+									<form class="form-group" method="GET" action="{{ action('PersonelController@edit', $personel->id) }}">
+										{{ csrf_field() }}
+										<button type="submit" class="btn btn-default">Düzenle</button>
+									</form>
+								</div>
+								<div class="col-md-2">
+									<form class="form-group" method="POST" action="{{ action('PersonelController@delete', $personel->id) }}">
+										{{ csrf_field() }}
+										{{ method_field('DELETE') }}
+
+										<button type="submit" class="btn btn-danger">Sil</button>
+									</form>
+								</div>
 
 						</tr>
 					@endforeach
