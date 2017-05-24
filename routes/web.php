@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/siparis', 'SiparisController@index');
     Route::get('/siparis/yeni/{id}', 'SiparisController@add');
     Route::post('/siparis/store', 'SiparisController@store');
+    Route::delete('/siparis/sil/{id}', 'SiparisController@delete');
 
     Route::get('/malzeme', 'MalzemeController@index');
     Route::get('/malzeme/yeni', 'MalzemeController@add');

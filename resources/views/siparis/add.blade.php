@@ -14,13 +14,13 @@
     <div class="row">
         <ol class="breadcrumb">
             <li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-            <li class="active">Ürün  Ekle</li>
+            <li class="active">Sipariş  Ekle</li>
         </ol>
     </div><!--/.row-->
 
     <div class="row">
         <div class="col-lg-10">
-            <h1 class="page-header">Ürün Ekle</h1>
+            <h1 class="page-header">Sipariş Ekle</h1>
         </div>
 
     </div><!--/.row-->
@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <label>Ürünler</label>
-                            <select multiple class="form-control" name="urunler[]">
+                            <select size="10" multiple class="form-control" name="urunler[]">
                                 @foreach($urunler as $urun)
                                     <option value="{{ $urun->id }}">{{ $urun->ad }}</option>
                                 @endforeach

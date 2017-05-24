@@ -11,11 +11,6 @@ use Illuminate\Http\Request;
 class SiparisController extends Controller
 {
 
-    public function dataSet()
-    {
-        $siparisler = Siparis::find(1);
-        $siparisler->personel()->ad;
-    }
 
 	public function index()
 	{
@@ -35,6 +30,17 @@ class SiparisController extends Controller
         return view('siparis.add', ['urunler' => $urunler, 'personeller' => $personeller, 'masa_no' => $masa_no]);
     }
 
+    public function delete($id)
+    {
+        $siparis = \App\Siparis::find($id);
+
+        $siparis->delete();
+
+        $siparisler = \App\Siparis::all()->sortBy('timestamp');
+
+        return view('siparis.index', ['siparisler' => $siparisler]);
+    }
+
     public function store(Request $request)
     {
 
@@ -51,10 +57,11 @@ class SiparisController extends Controller
 
         $uruns = $request['urunler'];
 
+        //dd($uruns);
+        $toplam = 0;
         foreach($uruns as $urun){
             $fiyat = Urun::find($urun)->fiyat;
 
-            $toplam = 0;
             $toplam += $fiyat;
         }
 
@@ -74,6 +81,17 @@ class SiparisController extends Controller
         $siparisler = Siparis::all()->sortBy('timestamp');
 
         return view('siparis.index', ['siparisler' => $siparisler]);
+    }
+
+    public function show($id)
+    {
+        $siparis = Siparis::find($id);
+
+        dd($siparis->personel()->get()[0]['ad']);
+
+        //dd($siparis->urun()->get()[0]['ad']);
+
+        return view('siparis.show');
     }
  
 }

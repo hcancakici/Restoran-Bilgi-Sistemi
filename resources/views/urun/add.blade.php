@@ -45,7 +45,7 @@
 
                             <label>Malzemeler</label>
 
-                            <select multiple class="form-control" name="malzemeler[]">
+                            <select size="10" multiple class="form-control" name="malzemeler[]">
                                 @foreach($malzemeler as $malzeme)
                                     <option value="{{ $malzeme->id }}">{{ $malzeme->ad }}</option>
                                 @endforeach

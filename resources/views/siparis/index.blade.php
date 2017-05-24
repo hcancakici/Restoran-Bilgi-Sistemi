@@ -25,7 +25,7 @@
 				    <tr>
 				        <th data-field="id" data-align="right">Sipariş No</th>
 				        <th data-field="name">Masa No</th>
-						<th data-field="personel">Personel</th>
+				        <th data-field="name">Personel</th>
 						<th data-field="price">Tutar</th>
 				        <th data-field="islemler">İşlemler</th>
 				    </tr>
@@ -34,17 +34,12 @@
 					@foreach( $siparisler as $siparis )
 						<tr>
 							<td>{{ $siparis->id }}</td>
-							<td>{{ $siparis->masa}}</td>
-							<td>{{ $siparisler->personel()->ad }} {{ $siparisler->personel()->soyad }}</td>
+							<td>{{ $siparis->masa_id}}</td>
+							<td>{{ $siparis->personel()->get()[0]['ad'] }} {{ $siparis->personel()->get()[0]['soyad'] }}</td>
+							<td>{{ $siparis->tutar}}</td>
 							<td>
 								<div class="col-md-2">
-									<form class="form-group" method="GET" action="{{ action('PersonelController@edit', $siparis->id) }}">
-										{{ csrf_field() }}
-										<button type="submit" class="btn btn-default">Düzenle</button>
-									</form>
-								</div>
-								<div class="col-md-2">
-									<form class="form-group" method="POST" action="{{ action('PersonelController@delete', $siparis->id) }}">
+									<form class="form-group" method="POST" action="{{ action('SiparisController@delete', $siparis->id) }}">
 										{{ csrf_field() }}
 										{{ method_field('DELETE') }}
 
