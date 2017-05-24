@@ -30,6 +30,31 @@
 				        <th data-field="islemler">İşlemler</th>
 				    </tr>
 				    </thead>
+					<tbody>
+					@foreach( $siparisler as $siparis )
+						<tr>
+							<td>{{ $siparis->id }}</td>
+							<td>{{ $siparis->masa}}</td>
+							<td>{{ $siparisler->personel()->ad }} {{ $siparisler->personel()->soyad }}</td>
+							<td>
+								<div class="col-md-2">
+									<form class="form-group" method="GET" action="{{ action('PersonelController@edit', $siparis->id) }}">
+										{{ csrf_field() }}
+										<button type="submit" class="btn btn-default">Düzenle</button>
+									</form>
+								</div>
+								<div class="col-md-2">
+									<form class="form-group" method="POST" action="{{ action('PersonelController@delete', $siparis->id) }}">
+										{{ csrf_field() }}
+										{{ method_field('DELETE') }}
+
+										<button type="submit" class="btn btn-danger">Sil</button>
+									</form>
+								</div>
+
+						</tr>
+					@endforeach
+					</tbody>
 				</table>
 			</div>
 		</div>

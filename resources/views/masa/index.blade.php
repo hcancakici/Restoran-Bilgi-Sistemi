@@ -14,50 +14,26 @@
 				<h1 class="page-header">Masalar</h1>
 			</div>
 			<div class="col-md-2 "><br><br>
-				<a href="{{ action('MalzemeController@add') }}" type="button" class="btn btn-success col-centered" >Masa Ekle</a>
+				<a href="{{ action('MasaController@add') }}" type="button" class="btn btn-success col-centered" >Masa Ekle</a>
 
 
 			</div>
 		</div><!--/.row-->
 
 		<div class="row">
+		@for($i = 0; $i < $masalar->count(); $i++)
 
 			<div class="col-lg-3">
-				<center><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></center>
-				<br><center>Masa1</center>
-			</div>
-			<div class="col-lg-3">
-				<center><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></center>
-				<br><center>Masa2</center>
-			</div>
-			<div class="col-lg-3">
-				<center><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></center>
-				<br><center>Masa3</center>
-			</div>
-			<div class="col-lg-3">
-				<center><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></center>
-				<br><center>Masa4</center>
-			</div>
-		</div>
-		<div class="row">
+				<center>Masa {{ $masalar[$i]->no }}</center>
+				<center><a href="{{ action('SiparisController@add', $masalar[$i]->id) }}" ><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></a></center>
 
-			<div class="col-lg-3">
-				<center><svg class	="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></center>
-				<br><center>Masa5</center>
 			</div>
-			<div class="col-lg-3">
-				<center><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></center>
-				<br><center>Masa6</center>
-			</div>
-			<div class="col-lg-3">
-				<center><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></center>
-				<br><center>Masa7</center>
-			</div>
-			<div class="col-lg-3">
-				<center><svg class="glyph stroked bacon burger"><use xlink:href="#stroked-bacon-burger"/></svg></center>
-				<br><center>Masa8</center>
-			</div>
-		</div>
+			@if($i % 4 == 0 && $i != 0)
+				</div>
+				<div class="row">
+					@endif
+			@endfor
+				</div>
 
 
 

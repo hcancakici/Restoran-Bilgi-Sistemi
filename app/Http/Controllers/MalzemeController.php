@@ -48,7 +48,7 @@ class MalzemeController extends Controller
 
 	public function delete($id)
     {
-        $malzeme = \App\Malzeme::find(id);
+        $malzeme = \App\Malzeme::find($id);
 
         $malzeme->delete();
 

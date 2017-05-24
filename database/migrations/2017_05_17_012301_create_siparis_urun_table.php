@@ -13,16 +13,15 @@ class CreateUrunSiparisTable extends Migration
      */
     public function up()
     {
-        Schema::create('urun_siparis', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->integer('urun_id')->unsigned()->nullable();
-            $table->foreign('urun_id')->references('id')->on('uruns')->onDelete('cascade');
+        Schema::create('siparis_urun', function (Blueprint $table) {
 
             $table->integer('siparis_id')->unsigned()->nullable();
             $table->foreign('siparis_id')->references('id')->on('siparis')->onDelete('cascade');
 
-            $table->timestamps();
+            $table->integer('urun_id')->unsigned()->nullable();
+            $table->foreign('urun_id')->references('id')->on('uruns')->onDelete('cascade');
+
+
         });
     }
 
@@ -33,6 +32,6 @@ class CreateUrunSiparisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('urun_siparis');
+        Schema::dropIfExists('siparis_urun');
     }
 }

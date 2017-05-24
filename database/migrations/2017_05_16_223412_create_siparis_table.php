@@ -15,11 +15,9 @@ class CreateSiparisTable extends Migration
     {
         Schema::create('siparis', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('durum');
             $table->integer('masa_id');
             $table->integer('personel_id');
             $table->double('tutar');
-            $table->dateTime('tarih');
             $table->timestamps();
         });
     }

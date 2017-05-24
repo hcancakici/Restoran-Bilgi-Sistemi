@@ -9,7 +9,7 @@ class Siparis extends Model
     
 	public function urun()
 	{
-		return $this->belongsToMany(Urun::class);
+		return $this->belongsToMany(Urun::class)->withPivot('siparis_id', 'urun_id');
 	}
 
 	public function personel()

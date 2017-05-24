@@ -15,7 +15,7 @@ class CreateMasasTable extends Migration
     {
         Schema::create('masas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('no');
+            $table->string('no');
             
             $table->timestamps();
         });

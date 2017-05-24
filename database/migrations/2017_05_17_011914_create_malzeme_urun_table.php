@@ -14,14 +14,12 @@ class CreateMalzemeUrunTable extends Migration
     public function up()
     {
         Schema::create('malzeme_urun', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('malzeme_id')->unsigned()->nullable();
             $table->foreign('malzeme_id')->references('id')->on('malzemes')->onDelete('cascade');
 
             $table->integer('urun_id')->unsigned()->nullable();
             $table->foreign('urun_id')->references('id')->on('uruns')->onDelete('cascade');
 
-            $table->timestamps();
         });
     }
 

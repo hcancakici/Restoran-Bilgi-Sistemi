@@ -25,12 +25,17 @@ Route::group(['middleware' => 'auth'], function() {
 
 
     Route::get('/urun', 'UrunController@index');
+    Route::post('/urun/duzenle/{id}', 'UrunController@edit');
     Route::get('/urun/yeni', 'UrunController@add');
+    Route::get('/urun/ara', 'UrunController@search');
     Route::post('/urun/store', 'UrunController@store');
+    Route::delete('/urun/delete/{id}', 'UrunController@delete');
+    Route::post('/urun/update', 'UrunController@update');
+    Route::get('/urun/ara', 'UrunController@search');
 
     Route::get('/siparis', 'SiparisController@index');
-    Route::get('/siparis/yeni', 'SiparisController@add');
-    Route::post('/siparis/store', 'PersonelController@store');
+    Route::get('/siparis/yeni/{id}', 'SiparisController@add');
+    Route::post('/siparis/store', 'SiparisController@store');
 
     Route::get('/malzeme', 'MalzemeController@index');
     Route::get('/malzeme/yeni', 'MalzemeController@add');
