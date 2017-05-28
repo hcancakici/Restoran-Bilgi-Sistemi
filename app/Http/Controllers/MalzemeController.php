@@ -57,6 +57,11 @@ class MalzemeController extends Controller
         return view('malzeme/index', ['malzemeler' => $malzemeler]);
     }
 
+    public function gitLab()
+    {
+        return "GitLab rocks!!";
+    }
+
     public function edit($id)
     {
         $malzeme = \App\Malzeme::find($id);
